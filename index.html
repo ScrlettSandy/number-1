@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <title>Curated Frames</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* BASIC RESET + BOX MODEL */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lato", Arial, sans-serif;
+      background-color: #C9A66B;
+      color: #ffffff;
+    }
+
+    /* MAIN 1200PX CONTAINER */
+    #page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 40px 60px 40px;
+    }
+
+    /* HEADER */
+    header {
+      margin-bottom: 40px;
+    }
+
+    .header-left {
+      float: left;
+      font-size: 14px;
+    }
+
+    .header-right {
+      float: right;
+      font-size: 14px;
+    }
+
+    .header-left span.icon,
+    .header-right span.icon {
+      margin-right: 4px;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    header a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      color: #f5e9cf;
+    }
+
+    .site-title {
+      text-align: center;
+      margin-top: 40px;
+      letter-spacing: 0.25em;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 48px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .poster-row {
+      margin-top: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    /* UPDATED: Bigger + overlapping */
+    .poster {
+      display: inline-block;
+      width: 180px;
+      height: 270px;
+      margin: 0 -20px;      /* Overlap effect */
+      background-color: #5A2E00;
+      border: 4px solid #ffffff;
+    }
+
+    /* Optional tilts */
+    .poster.one  { transform: rotate(-3deg); }
+    .poster.two  { transform: rotate(-1deg); }
+    .poster.three{ transform: rotate(2deg); }
+    .poster.four { transform: rotate(-2deg); }
+    .poster.five { transform: rotate(3deg); }
+    .poster.six  { transform: rotate(1deg); }
+    .poster.seven{ transform: rotate(-2deg); }
+
+    .tagline {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    /* FILMSTRIP */
+    .filmstrip {
+      margin: 60px 0 20px 0;
+      background-color: #5A2E00;
+      border-top: 6px dotted #ffffff;
+      border-bottom: 6px dotted #ffffff;
+      padding: 20px 0;
+    }
+
+    .filmstrip-left {
+      float: left;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+    }
+
+    .filmstrip-right {
+      float: right;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+    }
+
+    /* INTRO PARAGRAPH */
+    .intro {
+      margin: 30px auto 80px auto;
+      max-width: 700px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* SCOPE SECTION */
+    .scope {
+      position: relative;
+      padding: 80px 0 100px 0;
+      background-color: #5A2E00;
+      margin-top: 100px;
+    }
+
+    .scope-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scope-title {
+      text-align: center;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .scope-underline {
+      height: 1px;
+      background-color: #ffffff;
+      width: 140px;
+      margin: 0 auto 40px auto;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 33.33% 33.33% 33.33%;
+      gap: 20px;
+    }
+
+    .scope-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .scope-item h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .scope-item p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* UPDATED SIDE POSTERS – NOW SIT ON TOP */
+    .scope-poster-left,
+    .scope-poster-right {
+      position: absolute;
+      top: -60px;        /* Overlaps upward */
+      width: 180px;
+      z-index: 5;         /* Above text */
+    }
+
+    .scope-poster-left {
+      left: -60px;
+    }
+
+    .scope-poster-right {
+      right: -60px;
+    }
+
+    .side-poster {
+      background-color: #A45A26;
+      height: 260px;
+      margin-bottom: 20px;
+      border: 4px solid #ffffff;
+      transform: rotate(-3deg);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.7);
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .footer-logos {
+      margin-top: 20px;
+    }
+
+    .pg-box,
+    .wb-box {
+      display: inline-block;
+      border: 2px solid #ffffff;
+      padding: 6px 10px;
+      margin: 0 10px;
+      font-weight: bold;
+      background-color: #C9A66B;
+      color: #5A2E00;
+    }
+
+    .small-print {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="clearfix">
+      <div class="header-left">
+        <span class="icon">🔍</span><a href="#">Search</a>
+      </div>
+      <div class="header-right">
+        <a href="#"><span class="icon">👤</span>My Account</a>
+      </div>
+      <h1 class="site-title">CURATED FRAMES</h1>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="poster-row">
+        <div class="poster one"></div>
+        <div class="poster two"></div>
+        <div class="poster three"></div>
+        <div class="poster four"></div>
+        <div class="poster five"></div>
+        <div class="poster six"></div>
+        <div class="poster seven"></div>
+      </div>
+
+      <p class="tagline">Cinema, curated by you</p>
+    </section>
+
+    <!-- FILMSTRIP -->
+    <section class="filmstrip">
+      <div class="filmstrip-inner clearfix">
+        <div class="filmstrip-left">Cinema Starts</div>
+        <div class="filmstrip-right">With You</div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
+      <p>
+        Welcome to Curated Frames, your personal space to collect, rank, and reflect
+        on the movies you love. Build custom lists, compare your favourites, revisit
+        what shaped you, and curate your own evolving cinematic archive, one frame at a time.
+      </p>
+    </section>
+
+    <!-- THE SCOPE -->
+    <section class="scope">
+
+      <!-- Overlapping posters -->
+      <div class="scope-poster-left">
+        <div class="side-poster"></div>
+        <div class="side-poster"></div>
+      </div>
+
+      <div class="scope-poster-right">
+        <div class="side-poster"></div>
+        <div class="side-poster"></div>
+      </div>
+
+      <div class="scope-inner">
+        <h2 class="scope-title">The Scope</h2>
+        <div class="scope-underline"></div>
+
+        <div class="scope-grid">
+          <div class="scope-item">
+            <span class="scope-icon">🎬</span>
+            <h3>Build your own cinematic archive</h3>
+            <p>
+              Rank movies, log what you’ve watched, and shape your personal gallery
+              of films—one frame at a time.
+            </p>
+          </div>
+
+          <div class="scope-item">
+            <span class="scope-icon">📚</span>
+            <h3>Curate lists</h3>
+            <p>
+              Create themed collections and craft lists that show exactly what kind
+              of movie lover you are.
+            </p>
+          </div>
+
+          <div class="scope-item">
+            <span class="scope-icon">👥</span>
+            <h3>Cinematic perspective</h3>
+            <p>
+              Compare rankings with friends, and discover how others frame the films
+              you love (or love to hate).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        A CURATED FRAMES WEBSITE<br>
+        CREATED BY SCARLETT SANDY<br>
+        EXECUTIVE DESIGNER SCARLETT SANDY<br>
+        ART DIRECTION CURATED FRAMES STUDIO<br>
+        WEB DEVELOPMENT THE CURATED FRAMES TEAM<br>
+        EDITORIAL CONTENT COMMUNITY CONTRIBUTORS<br>
+        USER EXPERIENCE CONSULTING CURATED FRAMES DIGITAL
+      </p>
+
+      <p class="footer-logos">
+        <span class="pg-box">PG</span>
+        <span class="wb-box">WB</span>
+      </p>
+
+      <p>
+        CONTACT INFO@CURATEDFRAMES.COM<br>
+        FOLLOW US @CURATEDFRAMES
+      </p>
+
+      <p class="small-print">
+        © 2025 CURATED FRAMES. ALL RIGHTS RESERVED.<br>
+        UNAUTHORIZED DUPLICATION, DISTRIBUTION, OR EXCESSIVE FILM GATEKEEPING IS STRICTLY PROHIBITED.
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
+
